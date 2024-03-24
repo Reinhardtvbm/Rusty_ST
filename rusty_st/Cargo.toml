@@ -1,0 +1,13 @@
+[package]
+name = "rusty_st"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cortex-m-rt = "0.7.3"
+
+[dependencies.stm32g4]
+version = "0.15.1"
+features = ["stm32g431"]
