@@ -1,6 +1,6 @@
 use stm32g4::stm32g431::{self, Peripherals};
 
-use crate::adc::ADCHandle;
+use crate::adc::{adc_config_types::AdcCont, adc_handle::ADCHandle};
 
 pub struct HAL {
     peripherals: Peripherals,
