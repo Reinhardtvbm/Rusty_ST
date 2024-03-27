@@ -1,3 +1,4 @@
+workspace = { members = ["adc_macro"] }
 [package]
 name = "rusty_st"
 version = "0.1.0"
@@ -7,7 +8,11 @@ edition = "2021"
 
 [dependencies]
 cortex-m-rt = "0.7.3"
+adc_macro = { path = "adc_macro" }
 
 [dependencies.stm32g4]
 version = "0.15.1"
 features = ["stm32g431"]
+
+[lib.adc_macro]
+proc-macro = true

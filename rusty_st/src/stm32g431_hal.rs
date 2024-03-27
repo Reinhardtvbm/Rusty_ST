@@ -1,11 +1,10 @@
-use stm32g4::stm32g431::{self, Peripherals};
+use stm32g4::stm32g431::{self, Peripherals, ADC1, ADC2};
 
-use crate::adc::{adc_config_types::AdcCont, adc_handle::ADCHandle};
+use crate::adc::adc_handle::ADC;
 
 pub struct HAL {
-    peripherals: Peripherals,
-    adc1: ADCHandle,
-    adc2: ADCHandle,
+    adc1: ADC<ADC1>,
+    adc2: ADC<ADC2>,
 }
 
 impl HAL {
@@ -13,13 +12,9 @@ impl HAL {
         let peripherals =
             stm32g431::Peripherals::take().expect("The HAL cannot be initialised twice");
 
-        let adc1 = ADCHandle::adc1(&peripherals);
-        let adc2 = ADCHandle::adc2(&peripherals);
+        let adc1 = ADC::new(peripherals.ADC1);
+        let adc2 = ADC::new(peripherals.ADC2);
 
-        Self {
-            peripherals,
-            adc1,
-            adc2,
-        }
+        Self { adc1, adc2 }
     }
 }

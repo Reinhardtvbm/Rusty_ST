@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "adc_macro"
+version = "0.1.0"
+
+[[package]]
 name = "bare-metal"
 version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -111,6 +115,7 @@ dependencies = [
 name = "rusty_st"
 version = "0.1.0"
 dependencies = [
+ "adc_macro",
  "cortex-m-rt",
  "stm32g4",
 ]
